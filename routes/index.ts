@@ -1,7 +1,7 @@
 import { Router } from "../devDepencies.ts";
-import { findUserAll, findUserById, createUser } from "../helpers/users.ts";
+import { findColorAll, findColorById, createColor } from "../helpers/color.ts";
 
 export const router = new Router()
-.get("/api/users", findUserAll)
-.get("/api/users/:id", findUserById)
-.post("/api/users", createUser)
+.get("/api/colors", findColorAll)
+.get("/api/colors/:id", findColorById)
+.post("/api/colos", createColor)

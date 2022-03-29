@@ -1,9 +1,9 @@
 import { Context, helpers } from "../devDepencies.ts";
-import { User } from "../types/users.ts";
+import { colors } from "../types/colors.ts";
 
 const arr: any = [];
 
-export const findUserAll = (ctx: Context) => {
+export const findColorAll = (ctx: Context) => {
   try {
     ctx.response.body = arr;
   } catch (err) {
@@ -12,27 +12,27 @@ export const findUserAll = (ctx: Context) => {
   }
 };
 
-export const findUserById = (ctx: Context) => {
+export const findColorById = (ctx: Context) => {
   try {
     const {id} = helpers.getQuery(ctx, {mergeParams: true});
-    const user: User = arr.find((user: any) => user.uid === id);
-    ctx.response.body = user;
+    const color: colors = arr.find((color: any) => color.id === id);
+    ctx.response.body = color;
   } catch (err) {
     ctx.response.status = 404;
     ctx.response.body = { message: err.message };
   }
 };
 
-export const createUser = async (ctx: Context) => {
+export const createColor = async (ctx: Context) => {
     try {
-      const {name, birtData} = await ctx.request.body().value
-      let userNew: User = {
-        uid: (Math.random()).toString(),
-        name,
-        birtData
+      const {color} = await ctx.request.body().value
+      let colorNew: colors = {
+        id: (Math.random()).toString(),
+        color,
+       
       }  
-        arr.push(userNew);
-        ctx.response.body = userNew;
+        arr.push(colorNew);
+        ctx.response.body = colorNew;
     } catch (err) {
       ctx.response.status = 404;
       ctx.response.body = { message: err.message };
