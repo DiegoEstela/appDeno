@@ -29,8 +29,7 @@ export const createColor = async (ctx: Context) => {
       let colorNew: colors = {
         id: (Math.random()).toString(),
         color,
-       
-      }  
+       }  
         arr.push(colorNew);
         ctx.response.body = colorNew;
     } catch (err) {
